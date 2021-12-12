@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import Modal from "../Modal";
-
-import photo from "../../assets/small/commercial/0.jpg";
+//import Modal from "../Modal";
 
 const PhotoList = ({ category }) => {
   //Photo descriptions
