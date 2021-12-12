@@ -23,16 +23,17 @@ const Nav = () => {
   ];
 
   const handleClick = () => {
-    console.log("click handled")
-  }
+    console.log("click handled");
+  };
 
   return (
-    <header>
+    <header className="flex-row px-1">
       <h2>
         <a data-testid="link" href="/">
           <span role="img" aria-label="camera">
+            {" "}
             📸
-          </span>{" "}
+          </span>
           Oh Snap!
         </a>
       </h2>
