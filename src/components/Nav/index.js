@@ -21,13 +21,13 @@ const Nav = () => {
     },
   ];
   function categorySelected(name) {
-      console.log("Ohayo")
-      console.log(`${name} clicked`)
+    console.log("Ohayo");
+    console.log(`${name} clicked`);
   }
   return (
     <header>
       <h2>
-        <a href="/">
+        <a data-testid="link" href="/">
           <span role="img" aria-label="camera">
             📸
           </span>{" "}
@@ -37,7 +37,9 @@ const Nav = () => {
       <nav>
         <ul className="flex-row">
           <li className="mx-2">
-            <a href="#about">About me</a>
+            <a data-testid="about" href="#about">
+              About me
+            </a>
           </li>
           <li>
             <span>Contact</span>
