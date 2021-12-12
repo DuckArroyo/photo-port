@@ -20,6 +20,10 @@ const Nav = () => {
       description: "Fields, farmhouses, waterfalls, and the beauty of nature",
     },
   ];
+  function categorySelected(name) {
+      console.log("Ohayo")
+      console.log(`${name} clicked`)
+  }
   return (
     <header>
       <h2>
@@ -41,7 +45,7 @@ const Nav = () => {
           <li>
             {categories.map((category) => (
               <li className="mx-1" key={category.name}>
-                <span>{category.name}</span>
+                <span onClick={categorySelected}>{category.name}</span>
               </li>
             ))}
           </li>
