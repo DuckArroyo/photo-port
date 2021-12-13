@@ -1,7 +1,12 @@
 import React, { useState } from "react";
-//import Modal from "../Modal";
+//import modal to make it a child/dependent of Photolist
+import Modal from "../Modal";
 
 const PhotoList = ({ category }) => {
+  //states
+  const [currentPhoto, setCurrentPhoto] = useState();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   //Photo descriptions
   const [photos] = useState([
     {
@@ -120,16 +125,28 @@ const PhotoList = ({ category }) => {
     },
   ]);
 
+  //filter
   const currentPhotos = photos.filter((photo) => photo.category === category);
+
+  //Modal function
+  const toggleModal = (image, i) => {
+    //current photo
+    setCurrentPhoto({ ...image, index: i });
+    setIsModalOpen(true);
+    console.log(image);
+    console.log(i);
+  };
 
   return (
     <div>
+      {isModalOpen && <Modal currentPhoto={currentPhoto} />}
       <div className="flex-row">
         {currentPhotos.map((image, i) => (
           <img
             src={require(`../../assets/small/${category}/${i}.jpg`).default}
             alt={image.name}
             className="img-thumbnail mx-1"
+            onClick={() => toggleModal(image, i)} //Activates modal. passes current image/clicked on image
             key={image.name}
           />
         ))}
