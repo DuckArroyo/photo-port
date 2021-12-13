@@ -132,14 +132,20 @@ const PhotoList = ({ category }) => {
   const toggleModal = (image, i) => {
     //current photo
     setCurrentPhoto({ ...image, index: i });
-    setIsModalOpen(true);
-    console.log(image);
-    console.log(i);
+    //setIsModalOpen(true); //Original function to make modal visible. Updating to function below.
+    setIsModalOpen(!isModalOpen); // allows passing of the functionality. aka can be updated elsewhere.
+
+    // console.log(image);
+    // console.log(i);
   };
 
   return (
     <div>
-      {isModalOpen && <Modal currentPhoto={currentPhoto} />}
+    {/* Passed from Photolist > toggleModal */}
+
+      {isModalOpen && (
+        <Modal currentPhoto={currentPhoto} onClose={toggleModal} />
+      )}
       <div className="flex-row">
         {currentPhotos.map((image, i) => (
           <img
