@@ -2,10 +2,6 @@ import React, { useEffect } from "react";
 import { capitalizeFirstLetter } from "../../utils/helpers";
 
 function Nav(props) {
-  //Currently not working. This is already implemented below also.
-  // useEffect(() => {
-  //   document.title = capitalizeFirstLetter(currentCategory.name);
-  // }, [currentCategory]);
 
   const {
     categories = [],
@@ -14,10 +10,6 @@ function Nav(props) {
     contactSelected,
     setContactSelected,
   } = props;
-
-  const handleClick = () => {
-    console.log("click handled");
-  };
 
   return (
     <header className="flex-row px-1">
